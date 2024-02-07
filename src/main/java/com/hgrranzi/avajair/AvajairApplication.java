@@ -1,6 +1,6 @@
 package com.hgrranzi.avajair;
 
-public class JavairApplication {
+public class AvajairApplication {
     public static void main(String[] args) {
 
     }
