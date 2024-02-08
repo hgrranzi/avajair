@@ -1,8 +1,15 @@
 package com.hgrranzi.avajair;
 
-public interface Flyable {
+public abstract class Flyable {
 
-    void updateConditions();
+    protected WeatherTower weatherTower;
 
-    default void registerTower(WeatherTower weatherTower) {}
+    public abstract void updateConditions();
+
+    public abstract String getIfo();
+
+    public void registerTower(WeatherTower weatherTower) {
+        this.weatherTower = weatherTower;
+        weatherTower.register(this);
+    }
 }

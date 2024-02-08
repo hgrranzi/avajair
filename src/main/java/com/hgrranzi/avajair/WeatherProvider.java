@@ -1,6 +1,6 @@
 package com.hgrranzi.avajair;
 
-import java.util.Random;
+import java.time.Instant;
 
 // Singleton class
 public class WeatherProvider {
@@ -12,7 +12,7 @@ public class WeatherProvider {
     private WeatherProvider() {
     }
 
-    public WeatherProvider getProvider() {
+    public static WeatherProvider getProvider() {
         if (instance == null) {
             instance = new WeatherProvider();
         }
@@ -20,6 +20,9 @@ public class WeatherProvider {
     }
 
     public String getCurrentWeather(Coordinates p_coordinates) {
-        return weather[new Random().nextInt(4)];
+        int index = ((int) Instant.now().toEpochMilli()
+                         / (p_coordinates.getLongitude() + p_coordinates.getLatitude() + p_coordinates.getHeight()))
+                        % 4;
+        return weather[index];
     }
 }
