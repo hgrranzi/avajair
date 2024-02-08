@@ -2,7 +2,7 @@ package com.hgrranzi.avajair;
 
 public class Helicopter extends Aircraft {
 
-    Helicopter(String name, Coordinates coordinates) {
+    public Helicopter(String name, Coordinates coordinates) {
         super(0, name, coordinates);
     }
 

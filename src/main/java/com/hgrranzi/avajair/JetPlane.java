@@ -2,7 +2,7 @@ package com.hgrranzi.avajair;
 
 public class JetPlane extends Aircraft {
 
-    JetPlane(String name, Coordinates coordinates) {
+    public JetPlane(String name, Coordinates coordinates) {
         super(0, name, coordinates);
     }
 
