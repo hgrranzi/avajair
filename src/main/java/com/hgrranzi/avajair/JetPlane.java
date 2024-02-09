@@ -19,7 +19,7 @@ public class JetPlane extends Aircraft {
                 adaptToConditions(0, 10, 2, "The SUN is up, the sky is blue, it's beautiful, and so are you!");
                 break;
             case "RAIN":
-                adaptToConditions(0, 5, 0, "I'm singin' in the RAIN, just singin' in the RAIN!");
+                adaptToConditions(0, 5, 0, "I'm singing in the RAIN, just singing in the RAIN!");
                 break;
             case "FOG":
                 adaptToConditions(0, 1, 0, "The FOG was lifting a voice was chanting!");
