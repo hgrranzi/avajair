@@ -4,17 +4,17 @@ public class AircraftFactory {
 
     private static int aircraftCreated = 0;
 
-    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+    public static Flyable newAircraft(String type, String name, Coordinates coordinates) throws AvajairCheckedException {
         long id = ++aircraftCreated;
-        switch (p_type) {
+        switch (type) {
             case "Helicopter":
-                return new Helicopter(id, p_name, p_coordinates);
+                return new Helicopter(id, name, coordinates);
             case "JetPlane":
-                return new JetPlane(id, p_name, p_coordinates);
+                return new JetPlane(id, name, coordinates);
             case "Baloon":
-                return new Baloon(id, p_name, p_coordinates);
+                return new Baloon(id, name, coordinates);
             default:
-                throw new RuntimeException(String.format("Cannot create an aircraft of type: %s", p_type));
+                throw new AvajairCheckedException(String.format("Cannot create an aircraft of type: %s", type));
         }
     }
 }
