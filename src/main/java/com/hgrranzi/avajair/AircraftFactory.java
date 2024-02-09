@@ -4,7 +4,7 @@ public class AircraftFactory {
 
     private static int aircraftCreated = 0;
 
-    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
         long id = ++aircraftCreated;
         switch (p_type) {
             case "Helicopter":
