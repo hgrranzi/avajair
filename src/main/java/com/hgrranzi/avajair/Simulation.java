@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static com.hgrranzi.avajair.Logger.getLogger;
+
 public class Simulation {
 
     private static WeatherTower tower;
@@ -14,10 +16,14 @@ public class Simulation {
         try {
             List<String> scenarioLines = parseScenario(scenarioPath);
             tower = new WeatherTower();
-            lola(scenarioLines);
+            Logger logger = getLogger();
+            registerObservers(scenarioLines);
             for (int i = 0; i < numberOfIterations; i++) {
+                logger.log(String.format("\n *** ITERATION #%d ***\n", i + 1));
                 tower.conditionChanged();
             }
+            System.out.println("Simulation completed");
+            logger.close();
         } catch (AvajairException exception) {
             System.out.println("ERROR: " + exception.getMessage());
         }
@@ -36,24 +42,22 @@ public class Simulation {
         return lines;
     }
 
-    private static void lola(List<String> lines) {
+    private static void registerObservers(List<String> lines) {
         if (lines == null || lines.isEmpty()) {
             throw new AvajairException("No lines to parse in scenario file");
         }
         try {
             numberOfIterations = Integer.parseInt(lines.get(0));
-            if (numberOfIterations <= 0) {
-                throw new AvajairException("Number of iterations must be positive");
+            if (numberOfIterations < 0) {
+                throw new AvajairException("Number of iterations must not be negative");
             }
         } catch (NumberFormatException e) {
             throw new AvajairException("First line in scenario is not a valid integer");
         }
-
         for (int i = 1; i < lines.size(); i++) {
             try {
                 Flyable flyable = parseAircraftInfo(lines.get(i), i + 1);
                 flyable.registerTower(tower);
-               // tower.register(parseAircraftInfo(lines.get(i), i + 1));
             } catch (AvajairCheckedException exception) {
                 System.out.println("WARNING: Aircraft not registered: " + exception.getMessage());
             }

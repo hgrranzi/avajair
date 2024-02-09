@@ -1,5 +1,7 @@
 package com.hgrranzi.avajair;
 
+import static com.hgrranzi.avajair.Logger.getLogger;
+
 public abstract class Aircraft extends Flyable {
 
     protected long id;
@@ -17,13 +19,13 @@ public abstract class Aircraft extends Flyable {
     }
 
     protected void land() {
-        System.out.printf("%s landing.%n", this.getIfo());
+        getLogger().log(String.format("%s landing.%n", this.getIfo()));
         this.weatherTower.unregister(this);
         this.weatherTower = null;
     }
 
     protected void adaptToConditions(int longitude, int latitude, int height, String message) {
-        System.out.printf("%s: %s%n", this.getIfo(), message);
+        getLogger().log(String.format("%s: %s%n", this.getIfo(), message));
         int newHeight = this.coordinates.getHeight() + height < 0 ? 0
                 : Math.min(this.coordinates.getHeight() + height, 100);
         this.coordinates = new Coordinates(
