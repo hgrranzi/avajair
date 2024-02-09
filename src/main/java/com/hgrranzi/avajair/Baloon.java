@@ -8,7 +8,7 @@ public class Baloon extends Aircraft {
 
     @Override
     public String getIfo() {
-        return String.format("Baloon#%s(%d): ", this.name, this.id);
+        return String.format("Baloon#%s(%d)", this.name, this.id);
     }
 
     @Override

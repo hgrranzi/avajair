@@ -8,7 +8,7 @@ public class Helicopter extends Aircraft {
 
     @Override
     public String getIfo() {
-        return String.format("Helicopter#%s(%d): ", this.name, this.id);
+        return String.format("Helicopter#%s(%d)", this.name, this.id);
     }
 
     @Override

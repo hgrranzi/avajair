@@ -23,7 +23,7 @@ public abstract class Aircraft extends Flyable {
     }
 
     protected void adaptToConditions(int longitude, int latitude, int height, String message) {
-        System.out.printf("%s%s%n", this.getIfo(), message);
+        System.out.printf("%s: %s%n", this.getIfo(), message);
         int newHeight = this.coordinates.getHeight() + height < 0 ? 0
                 : Math.min(this.coordinates.getHeight() + height, 100);
         this.coordinates = new Coordinates(
