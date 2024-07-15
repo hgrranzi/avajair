@@ -9,4 +9,20 @@ IN PROGRESS
 
 ## Description
 
-coming soon ...
+A simple text based simulator with pure Java
+
+### Build and run
+
+To compile:
+```
+cd avajair/
+find * -name "*.java" > sources.txt
+javac @sources.txt
+```
+
+To run:
+```
+java -cp src/main/java com.hgrranzi.avajair.AvajairApplication
+```
+
+
