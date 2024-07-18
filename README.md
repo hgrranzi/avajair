@@ -11,6 +11,8 @@ IN PROGRESS
 
 A simple text based simulator with pure Java
 
+![UML class diagram](avaj_uml.png)
+
 ### Build and run
 
 To compile:
