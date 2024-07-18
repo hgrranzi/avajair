@@ -5,7 +5,7 @@ Java, UML and design patterns
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 ## Description
 
