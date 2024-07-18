@@ -27,4 +27,9 @@ To run:
 java -cp src/main/java com.hgrranzi.avajair.AvajairApplication
 ```
 
+### Program output
+
+A text file ``` simulation.txt ``` will be generated
+
+
 
